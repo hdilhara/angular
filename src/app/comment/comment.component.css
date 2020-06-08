@@ -1,0 +1,9 @@
+.comment-comp{
+    width: 80%;
+    display: inline-block;
+
+}
+.form-control{
+    display: inline-block;
+    width: 66%;
+}

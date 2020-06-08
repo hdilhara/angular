@@ -1,0 +1,79 @@
+.app-input-gorup{
+    margin-bottom: 7px;
+}
+.field-set{
+    border: 1px solid black;
+    padding: 14px;
+    border-radius: 10px;
+}
+.field-set-value{
+    font-size: 20px;
+    position: relative;
+    top: 12px;
+    margin-left: 20px;
+    background: white;
+    padding: 3px;
+}
+.register-form>.btn-info{
+    float: right;
+    margin: 25px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+.register-form>.btn-info:hover{
+    background-color: black;
+    color: wheat;
+}
+.form-control-checkbox{
+    width: 77%;
+    display: inline-table;
+}
+.error{
+    display: inline-block;
+    color: red;
+font-size: 11px;
+font-weight: 700;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+@media only screen and (max-width : 769px){
+    .space-me{
+        margin-left: 20px;
+    }
+}
+@media only screen and (min-width : 769px){
+    .form-control{
+        display:inline-block;
+        width: 65%;
+        height: 29px;
+    }
+    .register-form{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 25px;
+    }
+    label{
+        min-width: 23%;
+    }
+    .form-control-checkbox{
+        width: 77%;
+        display: -webkit-inline-box;
+    }
+    .form-control-checkbox>div{
+        margin-right: 20px;
+    }
+    .error{
+        display: block;
+        color: red;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 24%;
+    position: relative;
+    top: -10px;
+    }
+}
+

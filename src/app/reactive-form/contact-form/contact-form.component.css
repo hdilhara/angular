@@ -1,0 +1,8 @@
+
+@media only screen and (min-width :769px){
+    .form-style{
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

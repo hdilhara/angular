@@ -1,0 +1,28 @@
+<h4>Using Firebase CURD operation </h4>
+<div class="form-group">
+    <label class="control-label " for="title">Title:</label>
+    <input [(ngModel)]="mypost.title" type="text" class="form-control" id="title">
+
+    <label class="control-label " for="content">Content:</label>
+    <textarea [(ngModel)]="mypost.content" class="form-control rounded-0" id="content" rows="2"></textarea>
+</div>
+<div *ngIf="getPostError" class="alert alert-danger" role="alert">
+    Can't load the post , Something went wrong...
+</div>
+<div *ngIf="postCreateError" class="alert alert-danger" role="alert">
+    Can't create the post , Something went wrong...
+</div>
+<button class="btn btn-primary" (click)="createPost()">send a post</button> &nbsp;&nbsp;
+<button class="btn btn-primary" (click)="getPosts()">get posts</button>
+<div class="text-center">
+<div *ngIf="isLoading" class="loader"></div>
+
+<ul *ngIf="allPosts != null" class="list-group">
+    <li class="list-group-item" *ngFor="let post of allPosts">
+        <h2>{{post.title}}</h2>
+        <p>
+            {{post.content}}
+        </p>
+        <button class="btn btn-danger" (click)="deletePost(post.id)">Delete Post</button>
+    </li>
+</ul>

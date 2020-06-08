@@ -1,0 +1,28 @@
+
+<div class="panel panel panel-primary">
+    <div class="panel-header ">
+        <span class="glyphicon glyphicon-equalizer" style=" margin-left: 15px;"> </span><span> <b> Social</b></span>
+      </div>
+    <div class="panel-body ">
+        <img src="../assets/img1.jpeg" width="100%" height="auto" class="img-fluid" alt="Responsive image">
+    </div>
+    <div class="panel-footer">
+        <!-- like Component here -->
+        <app-like [likeVals]="postVals" (likeCliked)="onLikeClicked($event)"></app-like>
+        <!-- comment Component here -->
+        <app-comment [count]="postVals.comments" (newcomment)="onNewComment($event)"></app-comment>
+        
+    </div>
+  </div>
+
+  <!-- all comments -->
+  <div class="panel panel-default">
+    <div class="panel-body">
+      All Comments
+    </div>
+    <div class="panel-footer" >
+        <p *ngFor="let comment of postVals.allComments">
+            {{comment}}
+        </p>
+    </div>
+  </div>

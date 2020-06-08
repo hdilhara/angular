@@ -1,0 +1,26 @@
+.header-panel{
+
+    background-color: #f5e8ea;
+    height: 55px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 21px;
+    line-height: 55px;
+    text-indent: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    
+}
+.content{
+    height: 55px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -15px;
+}
+.panel p{
+    width: 78%;
+    display: inline-block;
+}
+

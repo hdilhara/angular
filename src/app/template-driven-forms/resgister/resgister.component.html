@@ -1,0 +1,90 @@
+<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="register-form">
+    <h3>Register</h3>
+    <!-- Personal information -->
+    <span class="field-set-value">Personal-Info</span>
+    <div ngModelGroup="personal-info" class="field-set">
+        <div class="app-input-gorup">
+            <label>First Name</label>
+            <input ngModel name="fName" #fName="ngModel" required maxlength="50" type="text" class="form-control" placeholder="First Name">
+            <span class="error" *ngIf="fName.touched && !fName.valid">
+                <br><span *ngIf="fName.errors.required">This is a required feild</span>
+                <br><span *ngIf="fName.errors.maxlength">First Name not be larger than 50 characters </span>
+            </span>
+        </div>
+        <div class="app-input-gorup">
+            <label>Last Name</label>
+            <input ngModel required maxlength="50" name="lName" #lName="ngModel" type="text" class="form-control" placeholder="Last Name">
+            <span class="error" *ngIf="lName.touched && !lName.valid">
+                <br><span *ngIf="lName.errors.required">This is a required feild</span>
+                <br><span *ngIf="lName.errors.maxlength">First Name not be larger than 50 characters </span>
+            </span>
+        </div>
+        <div class="app-input-gorup">
+            <label>Date of birth</label>
+            <input ngModel name="dob" #dob="ngModel" required type="date" class="form-control" placeholder="Username">
+            <br><span class="error" *ngIf="dob.touched && !dob.valid && dob.errors.required">This is a required feild</span>
+        </div>
+        <div class="app-input-group " >
+            <label>Gender </label>
+            <input type="radio" ngModel name="gender" class="space-me" value="male"  >
+            <label style="font-weight: 500;">&nbsp;Male</label>
+            <input type="radio" ngModel name="gender" class="space-me" value="female">
+            <label style="font-weight: 500;">&nbsp;Female</label>
+        </div>
+        <div class="app-input-group-box">
+            <label>Intrests </label>
+            <div class="form-control-checkbox" >
+                <!--Intrest checkboxes  -->
+                <div ngModelGroup="intrest" *ngFor="let intrest of intrests" class="space-me">
+                    <input ngModel name="{{intrest.id}}" type="checkbox" value="{{intrest.type}}">
+                    {{intrest.type}}<!--Add display val here-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Contact-Informations -->
+    <span  class="field-set-value">Contact-Info</span>
+    <div  ngModelGroup="contact-info" class="field-set">
+        <div class="app-input-gorup">
+            <label>Phone No</label>
+            <input ngModel name="phone" minlength="10" maxlength="10" pattern="[0-9]{10}"  #phone="ngModel" type="text" class="form-control" placeholder="Phone No">
+            <span class="error" *ngIf="phone.touched && !phone.valid">
+                <span *ngIf="phone.errors.minlength"><br>Phone no content 10 numbers</span>
+                <span *ngIf="phone.errors.pattern"><br>This is not a phone number</span>
+            </span>
+        </div>
+        <div class="app-input-gorup">
+            <label>Email</label>
+            <input ngModel name="email" #email="ngModel" type="text" email class="form-control" placeholder="Email">
+            <span class="error" *ngIf="email.touched && !email.valid">
+                <br>This is not a E-mail
+            </span>
+        </div>
+        <div class="app-input-gorup">
+            <label>Re-Enter Email</label>
+            <input ngModel #confirm="ngModel" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Email"  >
+            <span class="error" *ngIf="confirmEmail(confirm,email)" >
+                <br><span > email is not matched to email!</span> 
+            </span>
+        </div>
+        <div class="app-input-gorup">
+            <div><label>Address</label></div>
+            <label></label>
+            <textarea ngModel name="address" id="" cols="30" rows="9" style="height: 100px;" class="form-control"></textarea>
+        </div>
+        <div class="app-input-gorup">
+            <label>Country</label>
+            <!-- contry dropdown -->
+            <select ngModel name="country" #country="ngModel"  id="" class="form-control">
+                <option value="">please select a country</option>
+                <option *ngFor="let coun of countries" value="{{coun.id}}">{{coun.country}}</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-info" [disabled]="!registerForm.valid || confirmEmail(confirm,email)">Submit</button>
+</form>
+<br>
+<hr>
+<h5>For testing perpose values in Json format._confirm-email is not included!</h5>
+{{registerForm.value | json}}

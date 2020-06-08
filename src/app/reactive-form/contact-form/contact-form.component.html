@@ -1,0 +1,39 @@
+Reactive Forms, custom validators, Async validators
+<p>
+    check async validation, type username => thilina 
+</p>
+<div class="form-style">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div *ngIf="contactForm.errors" class="alert alert-danger">
+            <div *ngIf="contactForm.errors.invalidUser">This is example for onsubmitting error check!</div>
+        </div>
+        <span formGroupName="account">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input name="username" formControlName="username" type="text" class="form-control" id="username">
+            <div *ngIf="username.pending" >Checkong for uniqueness...</div>
+            <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+                <div *ngIf="username.errors.required">This is a reqiued feild!</div>
+                <div *ngIf="username.errors.minlength">
+                    This should have {{username.errors.minlength.requiredLength}}
+                </div>
+                <div *ngIf="username.errors.uniqueUsername">
+                    The given user name already taken!
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input name="password" formControlName="password" type="text" class="form-control" id="password">
+            <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                <div *ngIf="password.errors.cannotContainSpace">
+                    This should not contain spaces.
+                </div>
+            </div>
+            
+        </div>
+    </span>
+        <button class="btn btn-primary" type="submit" [disabled]="contactForm.invalid">Submit</button>
+    </form>
+    {{contactForm.value | json}}
+</div>

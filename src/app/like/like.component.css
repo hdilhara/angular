@@ -1,0 +1,7 @@
+.like-comp{
+    width: 20%;
+    display: inline-block;
+}
+.glyphicon-heart{
+    cursor: pointer;
+}

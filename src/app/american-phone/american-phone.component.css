@@ -1,0 +1,17 @@
+.text-box{
+    width: 44%;
+    font-size: 15px;
+}
+.btn{
+    margin-top: 10px;
+    border-color: #080808;
+    background: white;
+    color:  #080808;
+}
+.btn:hover{
+    background: #080808;
+    color:  white;
+}
+red{
+    background: red;
+}

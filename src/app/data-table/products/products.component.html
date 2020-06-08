@@ -1,0 +1,21 @@
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Manage Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.product}}</td>
+        <td>{{product.price | currency}}</td>
+        <td>{{product.stock}}</td>
+        <td><app-stock-manage [stock-value]="product.stock" [product-id]="product.id" (changed-stock-value)="onChangeStock($event)"></app-stock-manage></td>
+      </tr>
+    </tbody>
+  </table>
