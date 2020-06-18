@@ -41,11 +41,11 @@ userDetails = {
     this.http.get(this.accountUrl)
     .subscribe(
       (res: Response) => {
-        this.userDetails.uname = res.login;
-        this.userDetails.from = res.location;
-        this.userDetails.name = res.name;
-        this.userDetails.avertar = res.avatar_url;
-        this.userDetails.followerUrl = res.followers_url;
+        this.userDetails.uname = res["login"];
+        this.userDetails.from = res["location"];
+        this.userDetails.name = res["name"];
+        this.userDetails.avertar = res["avatar_url"];
+        this.userDetails.followerUrl = res["followers_url"];
         this.perform = true;
         this.getFollowerDetails();
         this.errors = null;

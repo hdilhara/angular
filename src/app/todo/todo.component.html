@@ -1,0 +1,12 @@
+<p>Angular Animations!</p>
+<div *ngIf="headline">
+    <h3 @bounce >Hi this is Angular Animations</h3>
+</div>
+<button class="btn btn-success" (click)="animateMe()">Click Me</button>
+<div class="form-group">
+    <label for="todo">Add a Todo</label>&nbsp; &nbsp;
+    <input type="text" #input id="todo" (keyup.enter)="addItem(input)"/>
+</div>
+<ul [@.disabled]="isLoading" class="list-group">
+    <li class="list-group-item "  @bounce  *ngFor="let item1 of items; let i = index" (click)="removeItem(i)">{{item1}}</li>
+</ul>

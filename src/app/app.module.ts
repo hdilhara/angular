@@ -6,6 +6,7 @@ import { NgModule, ErrorHandler, Component } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,14 @@ import { HttpPostComponent } from './http-services/http-post/http-post.component
 import { from } from 'rxjs';
 import { GithubFollowersComponent } from './http-services/github-followers/github-followers.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TodoComponent } from './todo/todo.component';
+import { AngularmaterialComponent } from './angularmaterial/angularmaterial.component';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -46,7 +55,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ContactFormComponent,
     PasswordChangeComponent,
     HttpPostComponent,
-    GithubFollowersComponent
+    GithubFollowersComponent,
+    TodoComponent,
+    AngularmaterialComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +65,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatChipsModule,
+    MatSliderModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatButtonModule,
     RouterModule.forRoot([
       { path: '**', component : PageNotFoundComponent }
     ])
